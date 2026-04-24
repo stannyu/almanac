@@ -1,0 +1,208 @@
+# RAG (Retrieval-Augmented Generation)
+
+## What is RAG?
+
+**RAG** is a hybrid AI approach that enhances language models by combining:
+- **Parametric memory** (pre-trained model knowledge)
+- **Non-parametric memory** (external documents retrieved at inference time)
+
+Instead of relying only on what's "baked in" during training, RAG dynamically fetches relevant information from external knowledge bases (like Wikipedia) when generating responses. This makes outputs more accurate, factual, and up-to-date.
+
+---
+
+## RAG Techniques
+
+### 1. Standard RAG
+**Basic retrieval-generation pipeline**
+
+- Retrieves top-K relevant documents using dense retrieval
+- Conditions generation on retrieved documents
+- Two variants:
+  - **RAG-Sequence**: Uses one document for entire response
+  - **RAG-Token**: Different documents per token (more flexible)
+
+**Benefits**: Better factual accuracy, easy knowledge updates, reduces hallucinations
+
+---
+
+### 2. Self-RAG
+**Adds self-reflection to retrieval**
+
+- **Decides when retrieval is needed** (doesn't always retrieve)
+- **Evaluates relevance** of retrieved passages
+- **Critiques its own output** for factuality using special tokens:
+  - **RETRIEVE**: Should I retrieve?
+  - **ISREL**: Is this relevant?
+  - **ISSUP**: Is my answer supported by evidence?
+  - **ISUSE**: Is my answer useful?
+
+**Key difference**: Retrieves only when necessary and self-verifies responses
+
+---
+
+### 3. Corrective RAG (CRAG)
+**Fixes bad retrievals**
+
+- **Evaluates retrieval quality** with a lightweight evaluator
+- **Three confidence levels**:
+  - **High**: Use and refine documents
+  - **Low**: Discard and use web search instead
+  - **Medium**: Blend both retrieval and web search
+- **Knowledge refinement**: Breaks docs into "knowledge strips" and filters noise
+
+**Key innovation**: Doesn't blindly trust retrieval; corrects or replaces poor results
+
+---
+
+### 4. GraphRAG
+**Uses graph-structured knowledge**
+
+- Leverages **knowledge graphs** instead of just text
+- **Multi-hop reasoning** across entities and relationships
+- **5 components**:
+  1. Query processor (extract entities/relations)
+  2. Retriever (graph traversal, entity linking)
+  3. Organizer (prune, re-rank graph data)
+  4. Generator (LLM or GNN)
+  5. Graph data source (knowledge graphs)
+
+**Best for**: Structured domains (drug discovery, business processes, scientific reasoning)
+
+---
+
+### 5. FLARE (Active RAG)
+**Retrieves iteratively during generation**
+
+- Traditional RAG retrieves once before generating
+- **FLARE retrieves multiple times while generating**
+- **Process**:
+  1. Generates next sentence
+  2. Checks confidence on each token
+  3. If low confidence → retrieves more info
+  4. Regenerates sentence with new knowledge
+  5. Repeats until complete
+
+**Key advantage**: Dynamically refines knowledge during long-form generation
+
+---
+
+### 6. Speculative RAG
+**Draft-then-verify approach**
+
+- **Two-step process**:
+  1. **Drafting**: Small specialized model generates multiple answer drafts from document subsets
+  2. **Verification**: Large generalist model evaluates and selects best draft
+- **Multi-perspective sampling**: Clusters documents and samples diverse subsets
+
+**Benefits**: 51% lower latency, higher accuracy, no need to retrain large model
+
+---
+
+### 7. Auto-RAG
+**Autonomous iterative retrieval**
+
+- LLM autonomously decides **when and what to retrieve**
+- **Multi-turn dialogue with retriever** to refine queries
+- **Self-adaptive iteration count** based on question complexity
+- Uses **reasoning** instead of fixed rules
+
+**Example**: "Who coached the 2010 FIFA World Cup winner?" → retrieves Spain → realizes coach name missing → refines query → retrieves "Vicente del Bosque"
+
+---
+
+### 8. HybridRAG
+**Combines VectorRAG + GraphRAG**
+
+- **VectorRAG**: Semantic similarity search (good for abstractive tasks)
+- **GraphRAG**: Structured knowledge graphs (good for extractive tasks)
+- **Hybrid approach**: Merges both for optimal results
+
+**Best for**: Complex domains like financial analysis where both semantic search and structured reasoning are needed
+
+---
+
+### 9. MoRAG (Multi-Fusion RAG)
+**For human motion generation**
+
+- Specialized for **text-to-motion generation**
+- Breaks motion into **body parts** (torso, arms, legs)
+- Retrieves part-specific motions and **fuses** them
+- Uses motion diffusion models
+
+**Application**: Animation, VR, gaming
+
+---
+
+### 10. R²AG
+**Bridges retriever-LLM semantic gap**
+
+- Problem: Retrievers and LLMs trained differently
+- **Solution**: Uses **R2-Former model** to process retrieval features:
+  - Relevance score
+  - Precedent similarity
+  - Neighbor similarity
+- **Retrieval-aware prompting**: Embeds retrieval info into LLM input
+
+**Result**: LLM better understands WHY documents were retrieved
+
+---
+
+### 11. InFO-RAG
+**LLMs as information refiners**
+
+- **Unsupervised training** approach
+- Trains LLMs to **refine, correct, and complete** retrieved knowledge
+- **Three training tasks**:
+  1. **Select and Copy**: Extract concise knowledge
+  2. **Correct and Complete**: Fix errors, fill gaps
+  3. **Contextual Stimulation**: Generate from internal knowledge when retrieval fails
+
+**Key insight**: Don't treat retrieved docs as-is; actively refine them
+
+---
+
+### 12. RA-RAG (Reliability-Aware RAG)
+**Prioritizes trustworthy sources**
+
+- **Estimates source reliability** through cross-checking
+- Uses **Weighted Majority Voting** (not simple majority)
+- **k-RRSS method**: Selects top-k most reliable + relevant sources
+- Filters misaligned responses using AlignScore
+
+**Key benefit**: Reduces misinformation by evaluating source trustworthiness
+
+---
+
+## Summary Comparison
+
+| Technique | Main Innovation | Best For |
+|-----------|----------------|----------|
+| **Standard RAG** | Basic retrieval-generation | General knowledge tasks |
+| **Self-RAG** | Self-reflection & selective retrieval | Tasks needing verification |
+| **CRAG** | Corrective actions for bad retrieval | Robust fact-checking |
+| **GraphRAG** | Graph-based reasoning | Structured domains |
+| **FLARE** | Active retrieval during generation | Long-form content |
+| **Speculative RAG** | Draft-verify approach | Speed + accuracy |
+| **Auto-RAG** | Autonomous query refinement | Complex multi-hop questions |
+| **HybridRAG** | Vector + Graph combined | Financial/complex analysis |
+| **MoRAG** | Part-based fusion | Motion generation |
+| **R²AG** | Retrieval-aware embeddings | Bridging retriever-LLM gap |
+| **InFO-RAG** | Information refinement training | Handling noisy/incomplete docs |
+| **RA-RAG** | Source reliability estimation | Misinformation filtering |
+
+---
+
+## References
+
+1. Lewis, P., et al. (2021). Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. [arXiv:2005.11401](https://arxiv.org/abs/2005.11401)
+2. Asai, A., et al. (2023). Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection. [arXiv:2310.11511](https://arxiv.org/abs/2310.11511)
+3. Yan, S.-Q., et al. (2024). Corrective Retrieval Augmented Generation. [arXiv:2401.15884](https://arxiv.org/abs/2401.15884)
+4. Sarmah, B., et al. (2024). HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation.
+5. Jiang, Z., et al. (2023). Active Retrieval Augmented Generation. [arXiv:2305.06983](https://arxiv.org/abs/2305.06983)
+6. Wang, Z., et al. (2024). Speculative RAG: Enhancing Retrieval Augmented Generation through Drafting. [arXiv:2407.08223](https://arxiv.org/abs/2407.08223)
+7. Yu, T., et al. (2024). Auto-RAG: Autonomous Retrieval-Augmented Generation for Large Language Models. [arXiv:2411.19443](https://arxiv.org/abs/2411.19443)
+8. Han, H., et al. (2025). Retrieval-Augmented Generation with Graphs (GraphRAG). [arXiv:2501.00309](https://arxiv.org/abs/2501.00309)
+9. Shashank, K. S., et al. (2024). MoRAG – Multi-Fusion Retrieval Augmented Generation for Human Motion. [arXiv:2409.12140](https://arxiv.org/abs/2409.12140)
+10. Ye, F., et al. (2024). R^2AG: Incorporating Retrieval Information into Retrieval Augmented Generation. [arXiv:2406.13249](https://arxiv.org/abs/2406.13249)
+11. Xu, S., et al. (2024). Unsupervised Information Refinement Training of Large Language Models for Retrieval-Augmented Generation. [arXiv:2402.18150](https://arxiv.org/abs/2402.18150)
+12. Hwang, J., et al. (2025). Retrieval-Augmented Generation with Estimation of Source Reliability. [arXiv:2410.22954](https://arxiv.org/abs/2410.22954)

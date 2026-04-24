@@ -1,0 +1,38 @@
+:root {
+  --ifm-color-primary: #12715f;
+  --ifm-color-primary-dark: #106654;
+  --ifm-color-primary-darker: #0f604f;
+  --ifm-color-primary-darkest: #0c4f41;
+  --ifm-color-primary-light: #147c6a;
+  --ifm-color-primary-lighter: #15826f;
+  --ifm-color-primary-lightest: #1aa58d;
+  --ifm-code-font-size: 95%;
+  --ifm-background-color: #fcfdfc;
+  --ifm-navbar-background-color: rgba(252, 253, 252, 0.92);
+  --ifm-heading-color: #102a24;
+  --ifm-font-family-base: 'Avenir Next', 'Segoe UI', sans-serif;
+  --ifm-font-family-monospace: 'SFMono-Regular', 'SF Mono', ui-monospace, monospace;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #56d3bc;
+  --ifm-color-primary-dark: #3bcbb1;
+  --ifm-color-primary-darker: #2fc7ab;
+  --ifm-color-primary-darkest: #27a58e;
+  --ifm-color-primary-light: #71dbc7;
+  --ifm-color-primary-lighter: #7fe0ce;
+  --ifm-color-primary-lightest: #a8e9dd;
+  --ifm-background-color: #0f1720;
+  --ifm-heading-color: #edf6f3;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.hero--primary {
+  --ifm-hero-background-color: transparent;
+  --ifm-hero-text-color: #102a24;
+}
+
+[data-theme='dark'] .hero--primary {
+  --ifm-hero-text-color: #edf6f3;
+}
