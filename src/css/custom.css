@@ -1,39 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
 :root {
-  --ifm-color-primary: #12715f;
-  --ifm-color-primary-dark: #106654;
-  --ifm-color-primary-darker: #0f604f;
-  --ifm-color-primary-darkest: #0c4f41;
-  --ifm-color-primary-light: #147c6a;
-  --ifm-color-primary-lighter: #15826f;
-  --ifm-color-primary-lightest: #1aa58d;
+  --ifm-color-primary: #a33f1f;
+  --ifm-color-primary-dark: #93391c;
+  --ifm-color-primary-darker: #8b361b;
+  --ifm-color-primary-darkest: #722c16;
+  --ifm-color-primary-light: #b34522;
+  --ifm-color-primary-lighter: #bc4a24;
+  --ifm-color-primary-lightest: #d15c2d;
   --ifm-code-font-size: 95%;
-  --ifm-background-color: #fcfdfc;
-  --ifm-navbar-background-color: rgba(252, 253, 252, 0.92);
-  --ifm-heading-color: #102a24;
-  --ifm-font-family-base: 'Avenir Next', 'Segoe UI', sans-serif;
+  --ifm-background-color: #f5efe6;
+  --ifm-background-surface-color: #fffaf3;
+  --ifm-navbar-background-color: rgba(255, 250, 243, 0.88);
+  --ifm-heading-color: #2e180f;
+  --ifm-font-color-base: #42332d;
+  --ifm-font-family-base: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  --ifm-heading-font-family: 'Fraunces', Georgia, serif;
   --ifm-font-family-monospace:
     'SFMono-Regular', 'SF Mono', ui-monospace, monospace;
+  --ifm-navbar-link-color: #412f28;
+  --ifm-menu-color: #5a4740;
+  --ifm-border-color: rgba(74, 48, 36, 0.16);
+  --ifm-global-radius: 18px;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 [data-theme='dark'] {
-  --ifm-color-primary: #56d3bc;
-  --ifm-color-primary-dark: #3bcbb1;
-  --ifm-color-primary-darker: #2fc7ab;
-  --ifm-color-primary-darkest: #27a58e;
-  --ifm-color-primary-light: #71dbc7;
-  --ifm-color-primary-lighter: #7fe0ce;
-  --ifm-color-primary-lightest: #a8e9dd;
-  --ifm-background-color: #0f1720;
-  --ifm-heading-color: #edf6f3;
+  --ifm-color-primary: #ff9f6e;
+  --ifm-color-primary-dark: #ff8c51;
+  --ifm-color-primary-darker: #ff8343;
+  --ifm-color-primary-darkest: #ff6820;
+  --ifm-color-primary-light: #ffb28b;
+  --ifm-color-primary-lighter: #ffbc99;
+  --ifm-color-primary-lightest: #ffd8c4;
+  --ifm-background-color: #17100d;
+  --ifm-background-surface-color: #241915;
+  --ifm-navbar-background-color: rgba(23, 16, 13, 0.88);
+  --ifm-heading-color: #fff2e7;
+  --ifm-font-color-base: #dbc8bb;
+  --ifm-navbar-link-color: #f0ddd1;
+  --ifm-menu-color: #d3beb0;
+  --ifm-border-color: rgba(255, 214, 190, 0.12);
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
 .hero--primary {
   --ifm-hero-background-color: transparent;
-  --ifm-hero-text-color: #102a24;
+  --ifm-hero-text-color: #2e180f;
 }
 
 [data-theme='dark'] .hero--primary {
-  --ifm-hero-text-color: #edf6f3;
+  --ifm-hero-text-color: #fff2e7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(209, 92, 45, 0.08),
+      transparent 22%
+    ),
+    radial-gradient(
+      circle at right 20%,
+      rgba(163, 63, 31, 0.06),
+      transparent 18%
+    ),
+    var(--ifm-background-color);
+}
+
+.navbar {
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--ifm-border-color);
+  box-shadow: 0 10px 30px rgba(59, 31, 20, 0.06);
+}
+
+.navbar__title,
+.hero__title,
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--ifm-heading-font-family);
+  letter-spacing: -0.03em;
+}
+
+.hero__title {
+  font-size: clamp(3rem, 8vw, 5.8rem);
+  line-height: 0.95;
+  max-width: 10ch;
+}
+
+.hero__subtitle {
+  max-width: 42rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.button {
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.button--secondary {
+  background: transparent;
+  color: var(--ifm-heading-color);
+  border: 1px solid var(--ifm-border-color);
+}
+
+.button--secondary:hover {
+  background: rgba(163, 63, 31, 0.06);
+}
+
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--ifm-border-color);
+  background: rgba(255, 250, 243, 0.56);
+}
+
+[data-theme='dark'] .theme-doc-sidebar-container {
+  background: rgba(36, 25, 21, 0.6);
+}
+
+.theme-doc-markdown,
+.pagination-nav,
+.table-of-contents {
+  font-size: 1.02rem;
+}
+
+.theme-doc-markdown blockquote {
+  border-left: 4px solid var(--ifm-color-primary);
+  background: rgba(163, 63, 31, 0.05);
+  border-radius: 0 14px 14px 0;
+}
+
+.theme-code-block,
+pre {
+  border: 1px solid var(--ifm-border-color);
+  border-radius: 16px;
 }
