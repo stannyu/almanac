@@ -19,68 +19,68 @@ When a task is already running, you can type a slash command and press `Tab` to 
 
 ### Session Control
 
-| Command | Purpose | When to use it |
-|---------|---------|----------------|
-| [`/model`](#set-the-active-model-with-model) | Choose the active model (and reasoning effort, when available) | Switch between general-purpose models (`gpt-4.1-mini`) and deeper reasoning models before running a task |
-| [`/fast`](#toggle-fast-mode-with-fast) | Toggle Fast mode for GPT-5.4 | Turn Fast mode on or off, or check whether the current thread is using it |
-| [`/permissions`](#update-permissions-with-permissions) | Set what Codex can do without asking first | Relax or tighten approval requirements mid-session (Auto, Read Only, etc.) |
-| [`/personality`](#set-a-communication-style-with-personality) | Choose a communication style for responses | Make Codex more concise, explanatory, or collaborative without changing your instructions |
-| [`/status`](#inspect-the-session-with-status) | Display session configuration and token usage | Confirm active model, approval policy, writable roots, and remaining context capacity |
-| [`/experimental`](#toggle-experimental-features-with-experimental) | Toggle experimental features | Enable optional features such as subagents from the CLI |
+| Command                                                            | Purpose                                                        | When to use it                                                                                           |
+| ------------------------------------------------------------------ | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| [`/model`](#set-the-active-model-with-model)                       | Choose the active model (and reasoning effort, when available) | Switch between general-purpose models (`gpt-4.1-mini`) and deeper reasoning models before running a task |
+| [`/fast`](#toggle-fast-mode-with-fast)                             | Toggle Fast mode for GPT-5.4                                   | Turn Fast mode on or off, or check whether the current thread is using it                                |
+| [`/permissions`](#update-permissions-with-permissions)             | Set what Codex can do without asking first                     | Relax or tighten approval requirements mid-session (Auto, Read Only, etc.)                               |
+| [`/personality`](#set-a-communication-style-with-personality)      | Choose a communication style for responses                     | Make Codex more concise, explanatory, or collaborative without changing your instructions                |
+| [`/status`](#inspect-the-session-with-status)                      | Display session configuration and token usage                  | Confirm active model, approval policy, writable roots, and remaining context capacity                    |
+| [`/experimental`](#toggle-experimental-features-with-experimental) | Toggle experimental features                                   | Enable optional features such as subagents from the CLI                                                  |
 
 ### Conversation Management
 
-| Command | Purpose | When to use it |
-|---------|---------|----------------|
-| [`/clear`](#clear-the-terminal-and-start-a-new-chat-with-clear) | Clear the terminal and start a fresh chat | Reset the visible UI and conversation together when you want a fresh start |
-| [`/new`](#start-a-new-conversation-with-new) | Start a new conversation inside the same CLI session | Reset the chat context without leaving the CLI |
-| [`/resume`](#resume-a-saved-conversation-with-resume) | Resume a saved conversation from your session list | Continue work from a previous CLI session without starting over |
-| [`/fork`](#fork-the-current-conversation-with-fork) | Fork the current conversation into a new thread | Branch the active session to explore a new approach without losing the current transcript |
-| [`/compact`](#keep-transcripts-lean-with-compact) | Summarize the visible conversation to free tokens | Use after long runs so Codex retains key points without blowing the context window |
-| [`/plan`](#switch-to-plan-mode-with-plan) | Switch to plan mode and optionally send a prompt | Ask Codex to propose an execution plan before implementation work starts |
+| Command                                                         | Purpose                                              | When to use it                                                                            |
+| --------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| [`/clear`](#clear-the-terminal-and-start-a-new-chat-with-clear) | Clear the terminal and start a fresh chat            | Reset the visible UI and conversation together when you want a fresh start                |
+| [`/new`](#start-a-new-conversation-with-new)                    | Start a new conversation inside the same CLI session | Reset the chat context without leaving the CLI                                            |
+| [`/resume`](#resume-a-saved-conversation-with-resume)           | Resume a saved conversation from your session list   | Continue work from a previous CLI session without starting over                           |
+| [`/fork`](#fork-the-current-conversation-with-fork)             | Fork the current conversation into a new thread      | Branch the active session to explore a new approach without losing the current transcript |
+| [`/compact`](#keep-transcripts-lean-with-compact)               | Summarize the visible conversation to free tokens    | Use after long runs so Codex retains key points without blowing the context window        |
+| [`/plan`](#switch-to-plan-mode-with-plan)                       | Switch to plan mode and optionally send a prompt     | Ask Codex to propose an execution plan before implementation work starts                  |
 
 ### Code & Files
 
-| Command | Purpose | When to use it |
-|---------|---------|----------------|
-| [`/mention`](#highlight-files-with-mention) | Attach a file to the conversation | Point Codex at specific files or folders you want it to inspect next |
-| [`/diff`](#review-changes-with-diff) | Show the Git diff, including files Git isn't tracking yet | Review Codex's edits before you commit or run tests |
-| [`/review`](#ask-for-a-working-tree-review-with-review) | Ask Codex to review your working tree | Run after Codex completes work or when you want a second set of eyes on local changes |
-| [`/copy`](#copy-the-latest-response-with-copy) | Copy the latest completed Codex output | Grab the latest finished response or plan text without manually selecting it (or use `Ctrl+O`) |
+| Command                                                 | Purpose                                                   | When to use it                                                                                 |
+| ------------------------------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| [`/mention`](#highlight-files-with-mention)             | Attach a file to the conversation                         | Point Codex at specific files or folders you want it to inspect next                           |
+| [`/diff`](#review-changes-with-diff)                    | Show the Git diff, including files Git isn't tracking yet | Review Codex's edits before you commit or run tests                                            |
+| [`/review`](#ask-for-a-working-tree-review-with-review) | Ask Codex to review your working tree                     | Run after Codex completes work or when you want a second set of eyes on local changes          |
+| [`/copy`](#copy-the-latest-response-with-copy)          | Copy the latest completed Codex output                    | Grab the latest finished response or plan text without manually selecting it (or use `Ctrl+O`) |
 
 ### Agents & Background Tasks
 
-| Command | Purpose | When to use it |
-|---------|---------|----------------|
-| [`/agent`](#switch-agent-threads-with-agent) | Switch the active agent thread | Inspect or continue work in a spawned subagent thread |
-| [`/ps`](#check-background-terminals-with-ps) | Show experimental background terminals and their recent output | Check long-running commands without leaving the main transcript |
-| [`/stop`](#stop-background-terminals-with-stop) | Stop all background terminals | Cancel background terminal work started by the current session |
+| Command                                         | Purpose                                                        | When to use it                                                  |
+| ----------------------------------------------- | -------------------------------------------------------------- | --------------------------------------------------------------- |
+| [`/agent`](#switch-agent-threads-with-agent)    | Switch the active agent thread                                 | Inspect or continue work in a spawned subagent thread           |
+| [`/ps`](#check-background-terminals-with-ps)    | Show experimental background terminals and their recent output | Check long-running commands without leaving the main transcript |
+| [`/stop`](#stop-background-terminals-with-stop) | Stop all background terminals                                  | Cancel background terminal work started by the current session  |
 
 ### Integrations & Extensions
 
-| Command | Purpose | When to use it |
-|---------|---------|----------------|
-| [`/apps`](#browse-apps-with-apps) | Browse apps (connectors) and insert them into your prompt | Attach an app as `$app-slug` before asking Codex to use it |
-| [`/plugins`](#browse-plugins-with-plugins) | Browse installed and discoverable plugins | Inspect plugin tools, install suggested plugins, or manage plugin availability |
-| [`/mcp`](#list-mcp-tools-with-mcp) | List configured Model Context Protocol (MCP) tools | Check which external tools Codex can call during the session |
+| Command                                    | Purpose                                                   | When to use it                                                                 |
+| ------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| [`/apps`](#browse-apps-with-apps)          | Browse apps (connectors) and insert them into your prompt | Attach an app as `$app-slug` before asking Codex to use it                     |
+| [`/plugins`](#browse-plugins-with-plugins) | Browse installed and discoverable plugins                 | Inspect plugin tools, install suggested plugins, or manage plugin availability |
+| [`/mcp`](#list-mcp-tools-with-mcp)         | List configured Model Context Protocol (MCP) tools        | Check which external tools Codex can call during the session                   |
 
 ### Configuration & Debugging
 
-| Command | Purpose | When to use it |
-|---------|---------|----------------|
-| [`/init`](#generate-agentsmd-with-init) | Generate an `AGENTS.md` scaffold in the current directory | Capture persistent instructions for the repository or subdirectory you're working in |
-| [`/debug-config`](#inspect-config-layers-with-debug-config) | Print config layer and requirements diagnostics | Debug precedence and policy requirements, including experimental network constraints |
-| [`/statusline`](#configure-footer-items-with-statusline) | Configure TUI status-line fields interactively | Pick and reorder footer items (model/context/limits/git/tokens/session) and persist in config.toml |
-| [`/title`](#configure-terminal-title-items-with-title) | Configure terminal window or tab title fields interactively | Pick and reorder title items such as project, status, thread, branch, model, and task progress |
-| [`/sandbox-add-read-dir`](#grant-sandbox-read-access-with-sandbox-add-read-dir) | Grant sandbox read access to an extra directory (Windows only) | Unblock commands that need to read an absolute directory path outside the current readable roots |
+| Command                                                                         | Purpose                                                        | When to use it                                                                                     |
+| ------------------------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| [`/init`](#generate-agentsmd-with-init)                                         | Generate an `AGENTS.md` scaffold in the current directory      | Capture persistent instructions for the repository or subdirectory you're working in               |
+| [`/debug-config`](#inspect-config-layers-with-debug-config)                     | Print config layer and requirements diagnostics                | Debug precedence and policy requirements, including experimental network constraints               |
+| [`/statusline`](#configure-footer-items-with-statusline)                        | Configure TUI status-line fields interactively                 | Pick and reorder footer items (model/context/limits/git/tokens/session) and persist in config.toml |
+| [`/title`](#configure-terminal-title-items-with-title)                          | Configure terminal window or tab title fields interactively    | Pick and reorder title items such as project, status, thread, branch, model, and task progress     |
+| [`/sandbox-add-read-dir`](#grant-sandbox-read-access-with-sandbox-add-read-dir) | Grant sandbox read access to an extra directory (Windows only) | Unblock commands that need to read an absolute directory path outside the current readable roots   |
 
 ### System & Feedback
 
-| Command | Purpose | When to use it |
-|---------|---------|----------------|
-| [`/feedback`](#send-feedback-with-feedback) | Send logs to the Codex maintainers | Report issues or share diagnostics with support |
-| [`/logout`](#sign-out-with-logout) | Sign out of Codex | Clear local credentials when using a shared machine |
-| [`/quit`](#exit-the-cli-with-quit-or-exit) / [`/exit`](#exit-the-cli-with-quit-or-exit) | Exit the CLI | Leave the session immediately (save work first!) |
+| Command                                                                                 | Purpose                            | When to use it                                      |
+| --------------------------------------------------------------------------------------- | ---------------------------------- | --------------------------------------------------- |
+| [`/feedback`](#send-feedback-with-feedback)                                             | Send logs to the Codex maintainers | Report issues or share diagnostics with support     |
+| [`/logout`](#sign-out-with-logout)                                                      | Sign out of Codex                  | Clear local credentials when using a shared machine |
+| [`/quit`](#exit-the-cli-with-quit-or-exit) / [`/exit`](#exit-the-cli-with-quit-or-exit) | Exit the CLI                       | Leave the session immediately (save work first!)    |
 
 :::info Deprecated alias
 The `/approvals` command still works as an alias for `/permissions`, but it no longer appears in the slash popup list.
@@ -119,6 +119,7 @@ Use `/personality` to change how Codex communicates without rewriting your promp
 **Expected:** Codex confirms the new style in the transcript and uses it for later responses in the thread.
 
 **Available personalities:**
+
 - `friendly` - Conversational and approachable
 - `pragmatic` - Direct and focused
 - `none` - Disable personality instructions
@@ -310,6 +311,7 @@ Background terminals appear when `unified_exec` is in use; otherwise, the list m
 2. Choose a marketplace tab, then pick a plugin to inspect its capabilities or available actions
 
 **Expected:** Codex opens the plugin browser so you can review:
+
 - Installed plugins
 - Discoverable plugins that your configuration allows
 - Installed plugin state
@@ -355,6 +357,7 @@ Press `Space` on an installed plugin to toggle its enabled state.
 **Expected:** The footer status line updates immediately and persists to `tui.status_line` in `config.toml`.
 
 **Available status-line items:**
+
 - Model
 - Model + reasoning
 - Context stats
@@ -375,6 +378,7 @@ Press `Space` on an installed plugin to toggle its enabled state.
 **Expected:** The terminal window or tab title updates immediately and persists to `tui.terminal_title` in `config.toml`.
 
 **Available title items:**
+
 - App name
 - Project
 - Spinner
@@ -392,6 +396,7 @@ Press `Space` on an installed plugin to toggle its enabled state.
 2. Review the output for config layer order (lowest precedence first), on/off state, and policy sources
 
 **Expected:** Codex prints layer diagnostics plus policy details such as:
+
 - `allowed_approval_policies`
 - `allowed_sandbox_modes`
 - `mcp_servers`
@@ -448,19 +453,23 @@ This command is available only when running the CLI natively on Windows.
 ## Tips & Best Practices
 
 ### Queueing Commands
+
 - Press `Tab` after typing a slash command to queue it for the next turn when a task is running
 - Slash completion still works before you queue the command
 
 ### Number of Exemplars
+
 - Using between **4-8 exemplars** tends to yield good results
 - It can often be beneficial to include as many exemplars as possible
 
 ### Keyboard Shortcuts
+
 - `Ctrl+O` - Copy latest response (alternative to `/copy`)
 - `Ctrl+L` - Clear terminal view only (keeps chat context)
 - `Tab` - Queue a slash command during active tasks
 
 ### Session Management
+
 - Use `/fork` to experiment without losing your current progress
 - Use `/compact` regularly on long sessions to free context
 - Use `/status` to check token usage and model settings before big tasks

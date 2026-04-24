@@ -1,4 +1,4 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
   almanacSidebar: [
@@ -24,10 +24,7 @@ const sidebars: SidebarsConfig = {
         type: 'doc',
         id: 'llm/index',
       },
-      items: [
-        'llm/rag/index',
-        'llm/prompt-hacking/index',
-      ],
+      items: ['llm/rag/index', 'llm/prompt-hacking/index'],
     },
   ],
 };

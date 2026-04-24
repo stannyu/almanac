@@ -3,6 +3,7 @@
 ## What is RAG?
 
 **RAG** is a hybrid AI approach that enhances language models by combining:
+
 - **Parametric memory** (pre-trained model knowledge)
 - **Non-parametric memory** (external documents retrieved at inference time)
 
@@ -13,6 +14,7 @@ Instead of relying only on what's "baked in" during training, RAG dynamically fe
 ## RAG Techniques
 
 ### 1. Standard RAG
+
 **Basic retrieval-generation pipeline**
 
 - Retrieves top-K relevant documents using dense retrieval
@@ -26,6 +28,7 @@ Instead of relying only on what's "baked in" during training, RAG dynamically fe
 ---
 
 ### 2. Self-RAG
+
 **Adds self-reflection to retrieval**
 
 - **Decides when retrieval is needed** (doesn't always retrieve)
@@ -41,6 +44,7 @@ Instead of relying only on what's "baked in" during training, RAG dynamically fe
 ---
 
 ### 3. Corrective RAG (CRAG)
+
 **Fixes bad retrievals**
 
 - **Evaluates retrieval quality** with a lightweight evaluator
@@ -55,6 +59,7 @@ Instead of relying only on what's "baked in" during training, RAG dynamically fe
 ---
 
 ### 4. GraphRAG
+
 **Uses graph-structured knowledge**
 
 - Leverages **knowledge graphs** instead of just text
@@ -71,6 +76,7 @@ Instead of relying only on what's "baked in" during training, RAG dynamically fe
 ---
 
 ### 5. FLARE (Active RAG)
+
 **Retrieves iteratively during generation**
 
 - Traditional RAG retrieves once before generating
@@ -87,6 +93,7 @@ Instead of relying only on what's "baked in" during training, RAG dynamically fe
 ---
 
 ### 6. Speculative RAG
+
 **Draft-then-verify approach**
 
 - **Two-step process**:
@@ -99,6 +106,7 @@ Instead of relying only on what's "baked in" during training, RAG dynamically fe
 ---
 
 ### 7. Auto-RAG
+
 **Autonomous iterative retrieval**
 
 - LLM autonomously decides **when and what to retrieve**
@@ -111,6 +119,7 @@ Instead of relying only on what's "baked in" during training, RAG dynamically fe
 ---
 
 ### 8. HybridRAG
+
 **Combines VectorRAG + GraphRAG**
 
 - **VectorRAG**: Semantic similarity search (good for abstractive tasks)
@@ -122,6 +131,7 @@ Instead of relying only on what's "baked in" during training, RAG dynamically fe
 ---
 
 ### 9. MoRAG (Multi-Fusion RAG)
+
 **For human motion generation**
 
 - Specialized for **text-to-motion generation**
@@ -134,6 +144,7 @@ Instead of relying only on what's "baked in" during training, RAG dynamically fe
 ---
 
 ### 10. R²AG
+
 **Bridges retriever-LLM semantic gap**
 
 - Problem: Retrievers and LLMs trained differently
@@ -148,6 +159,7 @@ Instead of relying only on what's "baked in" during training, RAG dynamically fe
 ---
 
 ### 11. InFO-RAG
+
 **LLMs as information refiners**
 
 - **Unsupervised training** approach
@@ -162,6 +174,7 @@ Instead of relying only on what's "baked in" during training, RAG dynamically fe
 ---
 
 ### 12. RA-RAG (Reliability-Aware RAG)
+
 **Prioritizes trustworthy sources**
 
 - **Estimates source reliability** through cross-checking
@@ -175,20 +188,20 @@ Instead of relying only on what's "baked in" during training, RAG dynamically fe
 
 ## Summary Comparison
 
-| Technique | Main Innovation | Best For |
-|-----------|----------------|----------|
-| **Standard RAG** | Basic retrieval-generation | General knowledge tasks |
-| **Self-RAG** | Self-reflection & selective retrieval | Tasks needing verification |
-| **CRAG** | Corrective actions for bad retrieval | Robust fact-checking |
-| **GraphRAG** | Graph-based reasoning | Structured domains |
-| **FLARE** | Active retrieval during generation | Long-form content |
-| **Speculative RAG** | Draft-verify approach | Speed + accuracy |
-| **Auto-RAG** | Autonomous query refinement | Complex multi-hop questions |
-| **HybridRAG** | Vector + Graph combined | Financial/complex analysis |
-| **MoRAG** | Part-based fusion | Motion generation |
-| **R²AG** | Retrieval-aware embeddings | Bridging retriever-LLM gap |
-| **InFO-RAG** | Information refinement training | Handling noisy/incomplete docs |
-| **RA-RAG** | Source reliability estimation | Misinformation filtering |
+| Technique           | Main Innovation                       | Best For                       |
+| ------------------- | ------------------------------------- | ------------------------------ |
+| **Standard RAG**    | Basic retrieval-generation            | General knowledge tasks        |
+| **Self-RAG**        | Self-reflection & selective retrieval | Tasks needing verification     |
+| **CRAG**            | Corrective actions for bad retrieval  | Robust fact-checking           |
+| **GraphRAG**        | Graph-based reasoning                 | Structured domains             |
+| **FLARE**           | Active retrieval during generation    | Long-form content              |
+| **Speculative RAG** | Draft-verify approach                 | Speed + accuracy               |
+| **Auto-RAG**        | Autonomous query refinement           | Complex multi-hop questions    |
+| **HybridRAG**       | Vector + Graph combined               | Financial/complex analysis     |
+| **MoRAG**           | Part-based fusion                     | Motion generation              |
+| **R²AG**            | Retrieval-aware embeddings            | Bridging retriever-LLM gap     |
+| **InFO-RAG**        | Information refinement training       | Handling noisy/incomplete docs |
+| **RA-RAG**          | Source reliability estimation         | Misinformation filtering       |
 
 ---
 
