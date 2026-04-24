@@ -11,10 +11,11 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://example.com',
-  baseUrl: '/',
+  url: 'https://stannyu.github.io',
+  baseUrl: '/almanac/',
   organizationName: 'stannyu',
   projectName: 'almanac',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
 
