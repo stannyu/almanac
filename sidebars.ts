@@ -36,6 +36,11 @@ const sidebars: SidebarsConfig = {
       label: 'Health',
       items: ['health/hip-exercises'],
     },
+    {
+      type: 'category',
+      label: 'Github',
+      items: ['github/ACTIONS_GH'],
+    },
   ],
 };
 
