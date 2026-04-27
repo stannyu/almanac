@@ -26,6 +26,11 @@ const sidebars: SidebarsConfig = {
       },
       items: ['llm/rag/index', 'llm/prompt-hacking/index'],
     },
+    {
+      type: 'category',
+      label: 'Health',
+      items: ['health/hip-exercises'],
+    },
   ],
 };
 
