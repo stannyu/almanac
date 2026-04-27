@@ -15,6 +15,11 @@ const sidebars: SidebarsConfig = {
         'ai/tools/codex-slash-commands',
         'ai/tools/copilot-cli-commands',
         'ai/tools/ghostty',
+        {
+          type: 'category',
+          label: 'Skills',
+          items: ['ai/skills/skills-links'],
+        },
       ],
     },
     {
