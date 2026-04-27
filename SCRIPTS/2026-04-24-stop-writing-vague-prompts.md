@@ -7,8 +7,6 @@ target_length: '3-5 minutes'
 created: '2026-04-24'
 ---
 
-# Stop Writing Vague Prompts
-
 ## Source Summary
 
 The Learn Prompting article explains prompt engineering as the process of crafting and refining prompts so generative AI models produce more accurate, relevant, and useful outputs. The key idea is simple: models depend heavily on the input they receive, so vague prompts often lead to generic, incorrect, or incomplete responses. Better prompts add context, constraints, examples, style, format, and step-by-step guidance when the task requires reasoning.
